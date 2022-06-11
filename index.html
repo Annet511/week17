@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="Введите ФИО">
+    <button onclick="sort()">сортировать</button>
+    <input type="text" name="fname" placeholder="Фамилия">
+    <input type="text" name="lname" placeholder="Имя">
+    <input type="text" name="pname" placeholder="Отчество">
+
+
+
+
+    <script>
+        function sort() {
+            let str = document.querySelectorAll('input')[0].value;
+            str = str.trim();
+            let fio = str.split(" ");
+
+
+
+            let fname = fio[0];
+            let sname = fio[1];
+            let pname = fio[2];
+
+            document.querySelectorAll('input')[1].value = fname[0].toUpperCase() + fname.slice(1).toLocaleLowerCase();
+            document.querySelectorAll('input')[2].value = sname[0].toUpperCase() + sname.slice(1).toLocaleLowerCase();
+            document.querySelectorAll('input')[3].value = pname[0].toUpperCase() + pname.slice(1).toLocaleLowerCase();
+        }
+    </script>
+</body>
+
+</html>
