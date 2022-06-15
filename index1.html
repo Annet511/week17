@@ -22,11 +22,9 @@
     <input type="text" name="pname" placeholder="Отчество">
 
 
-
-
     <script>
         function sort() {
-            let str = document.querySelectorAll('input')[0].value;
+            let str = document.querySelector('input').value;
             str = str.trim();
             let fio = str.split(" ");
 

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: block;
+            border: none;
+            background-color: antiquewhite;
+            width: 50.5%;
+        }
+
+        .placecomments {
+            display: flex;
+            padding: 20px 0px;
+
+        }
+
+        .newComment {
+            width: 50%;
+        }
+
+        .btn {
+            width: 200px;
+        }
+    </style>
+
+<body>
+    <div class="wrapper">
+        <h1>Панель добавления анонимных коментариев</h1>
+        <div class="container"></div>
+        <div class="placecomments">
+            <textarea class="newComment" rows="5" placeholder="Введите комментарий"></textarea>
+        </div>
+        <div>
+            <button class="btn" onclick="addComments()">Добавить комментарий</button>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        let comments = [];
+
+        function addComments() {
+            let com = document.querySelector('.newComment').value;
+            let checks = checkSpam(com);
+            comments.push(checks);
+            generateComments();
+        }
+
+        function generateComments() {
+            let optionsString = "";
+            for (let comment of comments) {
+                optionsString += `<div><span>${comment}</span></div>`;
+            }
+            document.querySelector('.container').innerHTML = optionsString;
+        }
+
+        function checkSpam(str) {
+            str = `${str}`;
+            let commentV = str.replace(/виагра/gi, "***");
+            let commentX = commentV.replace(/xxx/gi, "***");
+            return commentX;
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            generateComments();
+        });
+    </script>
+</body>
+
+</html>
