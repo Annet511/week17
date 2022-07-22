@@ -10,7 +10,41 @@
 
 <body>
     <script>
+        function formatDate(date) {
+            date = new Date(date);
+            const now = new Date(); // в момент вызова функции
+            const diff = now - date; //разница в милисекундах
 
+            // прямо сейчас
+            if (diff < 1000) { //если меньше секунды
+                return `Прямо сейчас`;
+            }
+
+            //сколько секунд назад
+            if (diff < 60000) { //если меньше минуты
+                return `${diff / 1000} секунд назад`;
+            }
+
+            //сколько минут назад
+            if (diff < 1000 * 3600) { //если меньше часа
+                return `${diff /60000} минут назад`
+            }
+
+            const day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
+            const month = date.getMonth() < 10 ? `0${date.getMonth()}` : date.getMonth();
+            const year = date.getFullYear();
+            const hour = date.getHours() < 10 ? `0${date.getHours()}` : date.getHours();
+            const minutes = date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+            return `${day}.${month}.${year} ${hour}:${minutes}`;
+
+
+        }
+        console.log(formatDate(new Date()));
+        console.log(formatDate(new Date(new Date - 30 * 1000)));
+        console.log(formatDate(new Date(new Date - 5 * 60 * 1000)));
+        console.log(formatDate(new Date(new Date(new Date - 86400 * 4 * 1000))));
+
+        console.log(formatDate('2022-07-22'));
     </script>
 </body>
 
