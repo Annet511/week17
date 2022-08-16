@@ -14,9 +14,9 @@ function generate (min, max) {
     average = sum/array.length;
     
     // функция для расчета произведения
-    // let times = 1;
-    // for (let i= 0; i< array.length; i++);
-    // times *= array [i];
+    let times = 1;
+    for (let i= 0; i< array.length; i++)
+    times *= array[i];
     
       //вывод на экран
     document.querySelector (".array").textContent = "Сненерированный массив" + " " + array;
@@ -25,6 +25,7 @@ function generate (min, max) {
     // console.log (array.length);
     document.querySelector (".sum").textContent = "Сумма значений элементов в массиве" + " " + sum;
     document.querySelector (".average").textContent = "Среднее арифметическое значение элементов массива" + " " + average;
+    document.querySelector (".times").textContent = "Произведение элементов массива" + " " + times;
     // console.log (times);
     
     }
